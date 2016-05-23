@@ -25,19 +25,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.SeekBar;
-import android.widget.Spinner;
-import android.widget.TextView;
-
+import android.widget.*;
 import com.example.android.common.logger.Log;
 
 /**
- * This sample demonstrates the use of animation interpolators and path animations for
- * Material Design.
- * It shows how an {@link android.animation.ObjectAnimator} is used to animate two properties of a
- * view (scale X and Y) along a path.
+ * This sample demonstrates the use of animation interpolators and path animations for Material Design. It shows how an
+ * {@link android.animation.ObjectAnimator} is used to animate two properties of a view (scale X and Y) along a path.
  */
 public class InterpolatorFragment extends Fragment {
 
@@ -113,7 +106,7 @@ public class InterpolatorFragment extends Fragment {
 
                 // Log animation details
                 Log.i(TAG, String.format("Starting animation: [%d ms, %s, %s]",
-                        duration, (String) mInterpolatorSpinner.getSelectedItem(),
+                        duration, mInterpolatorSpinner.getSelectedItem(),
                         ((mIsOut) ? "Out (growing)" : "In (shrinking)")));
 
                 // Start the animation with the selected options
@@ -127,17 +120,25 @@ public class InterpolatorFragment extends Fragment {
         // Get the label to display the selected duration
         mDurationLabel = (TextView) v.findViewById(R.id.durationLabel);
 
-        // Initialize Interpolators programmatically by loading them from their XML definitions
-        // provided by the framework.
-        mInterpolators = new Interpolator[]{
-                new AnimationUtils().loadInterpolator(getActivity(),
-                        android.R.interpolator.linear),
-                new AnimationUtils().loadInterpolator(getActivity(),
-                        android.R.interpolator.fast_out_linear_in),
-                new AnimationUtils().loadInterpolator(getActivity(),
-                        android.R.interpolator.fast_out_slow_in),
-                new AnimationUtils().loadInterpolator(getActivity(),
-                        android.R.interpolator.linear_out_slow_in)
+        // Initialize Interpolators programmatically by loading them from their XML definitions provided by the
+        // framework.
+        mInterpolators = new Interpolator[] {
+                AnimationUtils.loadInterpolator(getActivity(), android.R.interpolator.accelerate_cubic),
+                AnimationUtils.loadInterpolator(getActivity(), android.R.interpolator.accelerate_decelerate),
+                AnimationUtils.loadInterpolator(getActivity(), android.R.interpolator.accelerate_quad),
+                AnimationUtils.loadInterpolator(getActivity(), android.R.interpolator.accelerate_quint),
+                AnimationUtils.loadInterpolator(getActivity(), android.R.interpolator.anticipate),
+                AnimationUtils.loadInterpolator(getActivity(), android.R.interpolator.anticipate_overshoot),
+                AnimationUtils.loadInterpolator(getActivity(), android.R.interpolator.bounce),
+                AnimationUtils.loadInterpolator(getActivity(), android.R.interpolator.cycle),
+                AnimationUtils.loadInterpolator(getActivity(), android.R.interpolator.decelerate_cubic),
+                AnimationUtils.loadInterpolator(getActivity(), android.R.interpolator.decelerate_quad),
+                AnimationUtils.loadInterpolator(getActivity(), android.R.interpolator.decelerate_quint),
+                AnimationUtils.loadInterpolator(getActivity(), android.R.interpolator.fast_out_linear_in),
+                AnimationUtils.loadInterpolator(getActivity(), android.R.interpolator.fast_out_slow_in),
+                AnimationUtils.loadInterpolator(getActivity(), android.R.interpolator.linear),
+                AnimationUtils.loadInterpolator(getActivity(), android.R.interpolator.linear_out_slow_in),
+                AnimationUtils.loadInterpolator(getActivity(), android.R.interpolator.overshoot)
         };
 
         // Load names of interpolators from a resource
@@ -190,12 +191,9 @@ public class InterpolatorFragment extends Fragment {
     }
 
     /**
-     * Start an animation on the sample view.
-     * The view is animated using an {@link android.animation.ObjectAnimator} on the
-     * {@link View#SCALE_X} and {@link View#SCALE_Y} properties, with its animation based on a path.
-     * The only two paths defined here ({@link #mPathIn} and {@link #mPathOut}) scale the view
-     * uniformly.
-     *
+     * Start an animation on the sample view. The view is animated using an {@link android.animation.ObjectAnimator} on
+     * the {@link View#SCALE_X} and {@link View#SCALE_Y} properties, with its animation based on a path. The only two
+     * paths defined here ({@link #mPathIn} and {@link #mPathOut}) scale the view uniformly.
      * @param interpolator The interpolator to use for the animation.
      * @param duration     Duration of the animation in ms.
      * @param path         Path of the animation
@@ -217,7 +215,6 @@ public class InterpolatorFragment extends Fragment {
 
     /**
      * Return the array of loaded Interpolators available in this Fragment.
-     *
      * @return Interpolators
      */
     public Interpolator[] getInterpolators() {
@@ -226,7 +223,6 @@ public class InterpolatorFragment extends Fragment {
 
     /**
      * Return the animation path for the 'in' (shrinking) animation.
-     *
      * @return
      */
     public Path getPathIn() {
@@ -235,7 +231,6 @@ public class InterpolatorFragment extends Fragment {
 
     /**
      * Return the animation path for the 'out' (growing) animation.
-     *
      * @return
      */
     public Path getPathOut() {

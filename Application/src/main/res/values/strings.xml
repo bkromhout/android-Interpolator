@@ -19,9 +19,21 @@ limitations under the License.
     <string name="interpolator">Interpolator:</string>
     <string name="animate">Animate!</string>
     <string-array name="interpolator_names">
-        <item>Linear</item>
+        <item>Accelerate Cubic</item>
+        <item>Accelerate Decelerate</item>
+        <item>Accelerate Quad</item>
+        <item>Accelerate Quint</item>
+        <item>Anticipate</item>
+        <item>Anticipate Overshoot</item>
+        <item>Bounce</item>
+        <item>Cycle</item>
+        <item>Decelerate Cubic</item>
+        <item>Decelerate Quad</item>
+        <item>Decelerate Quint</item>
         <item>Fast Out Linear In</item>
         <item>Fast Out Slow In</item>
+        <item>Linear</item>
         <item>Linear Out Slow In</item>
+        <item>Overshoot</item>
     </string-array>
 </resources>
